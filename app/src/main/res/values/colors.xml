@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="orange">#D8932E</color>
+    <color name="orangedark">#B36E07</color>
+    <color name="grey">#A3A09C</color>
+    <color name="maingreen">#5EE83F</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF6060</color>
+    <color name="blue">#127ACC</color>
+    <color name="navigantion">#B8BD86</color>
+    <color name="bluetextbg">#71BCF6</color>
+    <color name="purpletextbg">#8E5EE4</color>
+    <color name="goldtextbg">#DFB536</color>
+    <color name="green">#93DD3C</color>
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_marginTop="100dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:lottie_rawRes="@raw/loginanm"
+        android:layout_marginStart="88dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:background="@color/green"
+        android:layout_marginRight="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardMaxElevation="200dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PlogMate"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:background="@color/maingreen"
+            android:textAlignment="center"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardMaxElevation="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/etLoginUsername"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@drawable/etbgcolor"
+                android:drawableLeft="@drawable/name"
+                android:drawablePadding="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Username"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:id="@+id/etLoginPassword"
+                android:drawableLeft="@drawable/icon_pass"
+                android:drawablePadding="20dp"
+
+                android:hint="Password"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/etbgcolor"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:autofillHints="password"
+                android:inputType="textPassword" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbLoginShowpassword"
+                android:text="Show Password"
+                android:textStyle="bold"
+                android:buttonTint="@color/green"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:checked="false"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLoginlogin"
+                android:text="login"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/etbgcolor"
+                android:layout_marginTop="25dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:id="@+id/tvRegistration"
+        android:gravity="center"
+        android:text="New user ? click here.."
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="italic"/>
+
+
+</LinearLayout>

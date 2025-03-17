@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MegaMart</string>
+    <string name="security_privacy"><![CDATA[Security&Privacy]]></string>
 </resources>

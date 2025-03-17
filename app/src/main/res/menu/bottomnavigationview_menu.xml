@@ -4,19 +4,19 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <item
     android:title="Explore"
-    android:id="@+id/menuHomeNavLibrary"
+    android:id="@+id/menuHomeNavExplore"
     app:showAsAction="always"
     android:icon="@drawable/icon_handshake"/>
 
 <item
     android:title="Plogging"
-    android:id="@+id/menuHomeNavMembership"
+    android:id="@+id/menuHomeNavPlogging"
     app:showAsAction="always"
     android:icon="@drawable/baseline_travel_explore_24"/>
 
 <item
     android:title="Lal Bindi"
-    android:id="@+id/menuHomeNavAudiobook"
+    android:id="@+id/menuHomeNavLalbindi"
     android:icon="@drawable/baseline_circle_24"
     app:showAsAction="always"/>
 
@@ -25,12 +25,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <item
     android:title="Social Shelf"
-    android:id="@+id/menuHomeNavCart"
+    android:id="@+id/menuHomeNavSocialShelf"
     app:showAsAction="always"
     android:icon="@drawable/icon_book"/>
 <item
     android:title="Profile"
-    android:id="@+id/menuHomeNavMyLibrary"
+    android:id="@+id/menuHomeNavMyprofile"
     android:icon="@drawable/icon_username"
     app:showAsAction="always"/>
 

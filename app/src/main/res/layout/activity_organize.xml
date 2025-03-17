@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrganizeActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnaddevent"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="35dp"
+        android:background="@drawable/etbgcolor"
+        android:text="add Event"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnarremoveevent"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="35dp"
+        android:background="@drawable/etbgcolor"
+        android:text="Remove Event"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/etbgcolor"/>
+</LinearLayout>

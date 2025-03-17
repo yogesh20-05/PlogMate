@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
+        app:cardCornerRadius="30dp"
+        app:cardMaxElevation="200dp">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="About Us"
+            android:textSize="30dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            android:background="@color/maingreen"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="325dp"
+            android:layout_height="419dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="15dp"
+            android:text="🌱 Welcome to SambhajiNagar Ploggers! 🏃‍♂️🗑️
+        We are a community of passionate individuals who believe in making fitness fun while keeping our city clean. 🏙️✨
+
+        🌍 Our mission is simple:
+        ➤ Run, walk, or jog while picking up litter 🚶‍♀️🏃‍♂️♻️
+        ➤ Reduce plastic waste and promote sustainability 🌿🚯
+        ➤ Inspire citizens to take action for a cleaner and greener future 🌱💚
+
+        💪 Every small effort counts! By plogging together, we protect nature, improve our health, and create a positive impact on our beloved city. 🏞️💕
+
+        📢 Join us in making SambhajiNagar *litter-free, one step at a time!* 🚀🌎♻️"
+            android:textAlignment="center"
+            android:textSize="17dp"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

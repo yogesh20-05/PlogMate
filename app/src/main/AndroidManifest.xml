@@ -19,7 +19,7 @@
             android:name=".HelpActivity"
             android:exported="false" />
         <activity
-            android:name=".SetingsActivity"
+            android:name=".SettingActivity"
             android:exported="false" />
         <activity
             android:name=".OTPVerificationActivity"

@@ -31,6 +31,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#4A4A4A"
+        android:id="@+id/pfmaplink"
         android:gravity="center"
         android:padding="12dp"
         android:background="#FFFFFF"

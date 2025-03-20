@@ -42,12 +42,15 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.drawerlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     implementation("com.airbnb.android:lottie:6.0.0")
     implementation("com.loopj.android:android-async-http:1.4.11")
     androidTestImplementation(libs.espresso.core)
     implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("com.google.zxing:core:3.5.1") // Or the latest version
+    implementation("com.google.zxing:core:3.5.1") //
+
+
 
 }

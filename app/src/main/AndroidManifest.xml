@@ -22,6 +22,9 @@
             android:name=".AddEventActivity"
             android:exported="false" />
         <activity
+            android:name=".EditViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".common.EXPActivity"
             android:exported="false"
             android:theme="@style/Theme.MegaMart" />

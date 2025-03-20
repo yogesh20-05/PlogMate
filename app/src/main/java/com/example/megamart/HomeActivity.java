@@ -65,6 +65,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
             Intent i = new Intent(HomeActivity.this, MapActivity.class);
             startActivity(i);
 
+        } else if (item.getItemId() == R.id.menu_item_aboutus) {
+                Toast.makeText(HomeActivity.this, "Aboutus", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(HomeActivity.this, AboutUsActivity.class);
+                startActivity(i);
+
         } else if (item.getItemId() == R.id.menu_item_help) {
             Toast.makeText(HomeActivity.this, "Help", Toast.LENGTH_SHORT).show();
 

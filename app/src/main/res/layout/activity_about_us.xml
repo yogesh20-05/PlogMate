@@ -32,8 +32,8 @@
         <TextView
             android:layout_width="325dp"
             android:layout_height="419dp"
-            android:layout_marginTop="150dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="150dp"
             android:text="🌱 Welcome to SambhajiNagar Ploggers! 🏃‍♂️🗑️
         We are a community of passionate individuals who believe in making fitness fun while keeping our city clean. 🏙️✨
 
@@ -46,7 +46,7 @@
 
         📢 Join us in making SambhajiNagar *litter-free, one step at a time!* 🚀🌎♻️"
             android:textAlignment="center"
-            android:textSize="17dp"/>
+            android:textSize="17dp" />
 
 
     </androidx.cardview.widget.CardView>

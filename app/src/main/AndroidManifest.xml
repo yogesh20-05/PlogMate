@@ -16,6 +16,10 @@
         android:theme="@style/Theme.MegaMart"
         tools:targetApi="31">
         <activity
+            android:name=".common.EXPActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MegaMart" />
+        <activity
             android:name=".HelpActivity"
             android:exported="false" />
         <activity

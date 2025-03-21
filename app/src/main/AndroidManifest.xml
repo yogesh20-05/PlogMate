@@ -21,16 +21,15 @@
         <activity
             android:name=".AddEventActivity"
             android:exported="false" />
-        <activity
-            android:name=".EditViewActivity"
-            android:exported="false" />
+
         <activity
             android:name=".common.EXPActivity"
             android:exported="false"
             android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".HelpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MegaMart"/>
         <activity
             android:name=".SettingActivity"
             android:exported="false" />

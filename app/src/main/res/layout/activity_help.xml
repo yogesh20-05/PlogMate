@@ -1,10 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HelpActivity">
+    android:padding="16dp"
+    android:background="@color/white"
+   >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
+
+        <!-- Contact Info -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Contact Us"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="35dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📧 Email: support@ploggmate.com"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone: +91 9876543210"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- FAQ Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text=" Frequently Asked Questions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/black"/>
+
+        <!-- Question 1 -->
+        <TextView
+            android:id="@+id/question1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" What is Plogging?"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plogging is a combination of jogging and picking up litter while running."
+            android:textSize="11sp"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            android:padding="8dp"/>
+
+        <!-- Question 2 -->
+        <TextView
+            android:id="@+id/question2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" How to join a Plogging event?"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/answer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You can join a Plogging event via the PlogMate app under the Events section."
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

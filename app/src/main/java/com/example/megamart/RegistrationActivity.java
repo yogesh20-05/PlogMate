@@ -1,148 +1,106 @@
+
 package com.example.megamart;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.security.ProtectionDomain;
-
-import cz.msebera.android.httpclient.Header;
+import com.example.megamart.databinding.ActivityRegistrationBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegistrationActivity extends AppCompatActivity {
-
-
-    EditText etRegName,etRegPhno,etRegEmail,etRegusername,etRegPass;
-    CheckBox cbRegShowHidePAss;
-    Button btnRegRegister;
-
+    ActivityRegistrationBinding binding;
     ProgressDialog progressDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("PlogMate");
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_registration);
+        binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+    binding.regToLog.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
+            
+        }
+    });
 
-        etRegName=findViewById(R.id.etRegisterName);
-        etRegPhno=findViewById(R.id.etRegisterphno);
-        etRegEmail=findViewById(R.id.etRegisterEmailid);
-        etRegusername=findViewById(R.id.etRegisterrUsername);
-        etRegPass=findViewById(R.id.etRegisterPassword);
-        cbRegShowHidePAss=findViewById(R.id.cbRegisterShowpassword);
-        btnRegRegister=findViewById(R.id.btnRegisterregister);
-
-
-
-
-        cbRegShowHidePAss.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                {
-                    etRegPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                }
-                else
-                {
-                    etRegPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
-            }
-        });
-
-
-
-        btnRegRegister.setOnClickListener(new View.OnClickListener() {
+    binding.btnRegisterregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (etRegName.getText().toString().isEmpty()) {
-                    etRegName.setError("Enter your name");
-                } else if (etRegPhno.getText().toString().isEmpty()) {
-                    etRegPhno.setError("Enter the phone number");
-                } else if (etRegPhno.getText().toString().length() != 10) {
-                    etRegPhno.setError("Enter a valid phone number");
-                } else if (etRegEmail.getText().toString().isEmpty()) {
-                    etRegEmail.setError("Enter the Email ID");
-                } else if (!etRegEmail.getText().toString().contains("@")) {
-                    etRegEmail.setError("Enter the Valid Email ID");
-                } else if (!etRegEmail.getText().toString().contains("gmail.com")) {
-                    etRegEmail.setError("Enter the Valid Email ID");
-                } else if (etRegusername.getText().toString().isEmpty()) {
-                    etRegusername.setError("Please enter your Username");
-                } else if (etRegusername.getText().toString().length() < 8) {
-                    etRegusername.setError("Username must be greater that 8 characters");
-                } else if (!etRegusername.getText().toString().matches(".*[A-Z].*")) {
-                    etRegusername.setError("Username must be contain a Uppercase letter");
-                } else if (!etRegusername.getText().toString().matches(".*[a-z].*")) {
-                    etRegusername.setError("Username must be contain a Lowercase letter ");
-                } else if (!etRegusername.getText().toString().matches(".*[0-9].*")) {
-                    etRegusername.setError("User must be contain 1 number ");
-                } else if (!(etRegusername.getText().toString().matches(".*[@,#,$,%,&,_].*"))) {
-                    etRegusername.setError("User must be contain a Special symbol");
+                String Name = binding.etRegisterName.getText().toString();
+                String Username = binding.etRegisterrUsername.getText().toString();
+                String phoneNum = binding.etRegisterphno.getText().toString();
+                String Email = binding.etRegisterEmailid.getText().toString();
+                String Password = binding.etRegisterPassword.getText().toString();
 
-                } else if (etRegPass.getText().toString().isEmpty()) {
-                    etRegPass.setError("Password can not be empty");
+                progressDialog = new ProgressDialog(RegistrationActivity.this);
 
-                } else if (etRegPass.getText().toString().length() < 8) {
-                    etRegPass.setError("Password must be greater than 8 characters");
+                progressDialog.setTitle("Creating");
+                progressDialog.setMessage("Account");
+                progressDialog.show();
 
-                } else {
-                    AsyncHttpClient client = new AsyncHttpClient();
-                    RequestParams params = new RequestParams();
-                    params.put("name", etRegName.getText().toString());
-                    params.put("phno", etRegPhno.getText().toString());
-                    params.put("email", etRegEmail.getText().toString());
-                    params.put("username", etRegusername.getText().toString());
-                    params.put("password", etRegusername.getText().toString());
 
-                    client.post("http://192.168.70.127:80/bookinfo/registerdata.php", params, new JsonHttpResponseHandler() {
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            super.onSuccess(statusCode, headers, response);
+                FirebaseAuth.getInstance()
+                        .createUserWithEmailAndPassword(Email.trim(), Password.trim())
+                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                UserProfileChangeRequest userProfileChangeRequest=new UserProfileChangeRequest.Builder().setDisplayName(Name).build();
+                                FirebaseAuth.getInstance().getCurrentUser().updateProfile(userProfileChangeRequest);
+                                new MySharedPreferences(RegistrationActivity.this).setMyDeta(phoneNum);
+                                UserModel userModel=new UserModel();
+                                userModel.setuserName(Name);
+                                userModel.setusrName(Username);
+                                userModel.setusrEmail(Email);
+                                userModel.setusrPhNumber(phoneNum);
+                                userModel.setusrPassword(Password);
+                                FirebaseFirestore
+                                        .getInstance()
+                                        .collection("Users")
+                                        .document(FirebaseAuth.getInstance().getUid()).set(userModel);
 
-                            Toast.makeText(RegistrationActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
-                    });
+                                reset();
 
-                    Toast.makeText(RegistrationActivity.this, "Registration successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                }
+
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+
+                                Toast.makeText(RegistrationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
-
-
-
-
-
         });
 
+
+    }
+
+    private void reset() {
+        progressDialog.cancel();
+        Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show();
+        FirebaseAuth.getInstance().signOut();
 
     }
 }

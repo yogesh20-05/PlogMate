@@ -1,5 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+
+
 }
 
 android {
@@ -43,6 +46,9 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.drawerlayout)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     implementation("com.airbnb.android:lottie:6.0.0")
@@ -50,6 +56,7 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.zxing:core:3.5.1") //
+    implementation("com.google.firebase:firebase-firestore:25.1.3")
 
 
 

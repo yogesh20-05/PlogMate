@@ -16,12 +16,15 @@
         android:theme="@style/Theme.MegaMart"
         tools:targetApi="31">
         <activity
+            android:name=".RegistrationActivity"
+            android:exported="false"
+            android:theme="@style/ShowActionBar" />
+        <activity
             android:name=".EditEventActivity"
             android:exported="false" />
         <activity
             android:name=".AddEventActivity"
             android:exported="false" />
-
         <activity
             android:name=".common.EXPActivity"
             android:exported="false"
@@ -29,7 +32,7 @@
         <activity
             android:name=".HelpActivity"
             android:exported="false"
-            android:theme="@style/Theme.MegaMart"/>
+            android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".SettingActivity"
             android:exported="false" />
@@ -38,10 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false"
-            android:theme="@style/ShowActionBar" />
-        <activity
-            android:name=".RegistrationActivity"
             android:exported="false"
             android:theme="@style/ShowActionBar" />
         <activity

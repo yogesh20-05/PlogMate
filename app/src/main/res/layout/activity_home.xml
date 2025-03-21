@@ -19,6 +19,8 @@
         android:layout_height="0dp"
         android:layout_weight="88" />
 
+
+>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/homeBottomNav"
         android:layout_width="match_parent"
@@ -26,6 +28,9 @@
         android:layout_weight="14"
         android:background="@color/navigantion"
         app:menu="@menu/bottomnavigationview_menu" />
+
+   
+
 
 
 </LinearLayout>

@@ -1,126 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_marginTop="100dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:lottie_rawRes="@raw/loginanm"
-        android:layout_marginStart="88dp"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ivloginimage"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="30dp"
-        android:background="@color/green"
-        android:layout_marginRight="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardMaxElevation="200dp">
+        android:scaleType="centerCrop"
+        android:src="@drawable/top_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Hi, \nPlease Login"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:layout_marginTop="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Email"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/etLoginEmail"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:inputType="textEmailAddress"
+            android:hint="Enter Your Email"
+            android:textColorHint="@color/black"
+            android:textColor="@color/lightgrey"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="Password"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/etLoginpassword"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:inputType="textPassword"
+            android:hint="Enter Your Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/lightgrey"
+            android:textSize="18dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/btnLoginlogin"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_background"
+            style="@android:style/Widget.Button"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:text="Login"
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PlogMate"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:background="@color/maingreen"
-            android:textAlignment="center"/>
-
-    </androidx.cardview.widget.CardView>
-
-
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardMaxElevation="200dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <EditText
-                android:id="@+id/etLoginUsername"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:background="@drawable/etbgcolor"
-                android:drawableLeft="@drawable/name"
-                android:drawablePadding="20dp"
-                android:layout_marginLeft="20dp"
-                android:hint="Username"
-                android:inputType="text"
-                android:padding="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="8dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:id="@+id/etLoginPassword"
-                android:drawableLeft="@drawable/icon_pass"
-                android:drawablePadding="20dp"
-
-                android:hint="Password"
-                android:layout_marginLeft="20dp"
-                android:padding="10dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/etbgcolor"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:autofillHints="password"
-                android:inputType="textPassword" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbLoginShowpassword"
-                android:text="Show Password"
-                android:textStyle="bold"
-                android:buttonTint="@color/green"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="20dp"
-                android:checked="false"/>
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnLoginlogin"
-                android:text="login"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/etbgcolor"
-                android:layout_marginTop="25dp"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            android:layout_marginTop="13dp"
+            android:id="@+id/tvRegistration"
+            android:gravity="center"
+            android:text="New user ? click here.."
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="italic"/>
+    </LinearLayout>
 
 
 
@@ -128,22 +126,9 @@
 
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:id="@+id/tvRegistration"
-        android:gravity="center"
-        android:text="New user ? click here.."
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="italic"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 
 
-</LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

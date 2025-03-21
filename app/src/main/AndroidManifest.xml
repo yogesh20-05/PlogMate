@@ -22,32 +22,30 @@
             android:name=".AddEventActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".common.EXPActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MegaMart" />
+
         <activity
             android:name=".HelpActivity"
             android:exported="false"
             android:theme="@style/Theme.MegaMart"/>
         <activity
             android:name=".SettingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MegaMart"/>
         <activity
             android:name=".OTPVerificationActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
-            android:theme="@style/ShowActionBar" />
+            android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
-            android:theme="@style/ShowActionBar" />
+            android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/ShowActionBar" />
+            android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">

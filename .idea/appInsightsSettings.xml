@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.megamart" />
+                  <option name="mobileSdkAppId" value="1:842071205675:android:072842b59b5699377ac76e" />
+                  <option name="projectId" value="megamart-ef919" />
+                  <option name="projectNumber" value="842071205675" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

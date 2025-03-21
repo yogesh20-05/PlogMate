@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_item_settings) {
             Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(HomeActivity.this, SettingActivity.class);
+            Intent i =  new Intent(HomeActivity.this, SettingActivity.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.menu_item_map) {
             Toast.makeText(HomeActivity.this, "Map", Toast.LENGTH_SHORT).show();

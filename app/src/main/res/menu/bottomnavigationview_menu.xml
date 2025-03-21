@@ -21,9 +21,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     app:showAsAction="always"/>
 
 
-
-
-<item
+    <item
     android:title="Social Shelf"
     android:id="@+id/menuHomeNavSocialShelf"
     app:showAsAction="always"

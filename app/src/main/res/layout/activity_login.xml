@@ -10,125 +10,116 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-
     <ImageView
-        android:id="@+id/ivloginimage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="270dp"
+        android:id="@+id/ivloginimage"
         android:scaleType="centerCrop"
-        android:src="@drawable/top_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/top_background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-62dp" />
 
     <TextView
-        android:id="@+id/tvhi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/tvhi"
         android:text="Hi, \nPlease Login"
-        android:textColor="@color/white"
-        android:textSize="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="#ffffff"
+        app:layout_MarginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="32dp"
-        android:layout_marginTop="130dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+       android:padding="32dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/tvemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Email"
             android:textColor="@color/black"
+            android:text="Email"
             android:textStyle="bold"
-            android:textSize="20dp"
-            />
+            android:textSize="22sp"
+            android:layout_marginTop="5dp"/>
 
         <EditText
-            android:id="@+id/etLoginEmail"
-            android:layout_width="330dp"
+            android:id="@id/tvemail"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
+            android:hint="Enter Email"
             android:padding="12dp"
-            android:layout_marginTop="12dp"
-            android:inputType="textEmailAddress"
-            android:hint="Enter Your Email"
+            android:textColor="#707070"
             android:textColorHint="@color/black"
-            android:textColor="@color/lightgrey"
-            android:textSize="18dp" />
+            android:textSize="20dp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
-            android:id="@+id/tpassword"
+            android:id="@+id/tvpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:text="Password"
             android:textColor="@color/black"
+            android:text="Password"
             android:textStyle="bold"
-            android:textSize="20dp"
-            />
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/etLoginpassword"
-            android:layout_width="330dp"
+            android:id="@id/tvpassword"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
+            android:hint="Password"
             android:padding="12dp"
-            android:layout_marginTop="12dp"
-            android:inputType="textPassword"
-            android:hint="Enter Your Password"
+            android:textColor="#707070"
             android:textColorHint="@color/black"
-            android:textColor="@color/lightgrey"
-            android:textSize="18dp" />
+            android:textSize="20dp"
+            tools:ignore="TextSizeCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:id="@+id/btnLoginlogin"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/button_background"
             style="@android:style/Widget.Button"
-            android:textColor="#ffffff"
-            android:textSize="25dp"
-            android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="Login"
+            android:textStyle="bold"
+            android:textSize="25dp"/>
 
-
-        <TextView
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:id="@+id/tvRegistration"
+            android:background="@color/white"
             android:gravity="center"
             android:text="New user ? click here.."
+            android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="italic"/>
+            android:textSize="15dp"
+            android:textStyle="italic"
+            tools:ignore="MissingConstraints,TextSizeCheck" />
+
     </LinearLayout>
 
-
-
-
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+    

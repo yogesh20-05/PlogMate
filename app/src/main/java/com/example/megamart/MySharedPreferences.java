@@ -5,9 +5,13 @@ import android.content.SharedPreferences;
 public class MySharedPreferences {
     private Context context;
 
-
+ SharedPreferences sharedPreferences;
     public MySharedPreferences(Context context) {
         this.context = context;
+    }
+
+    public String getData() {
+        return sharedPreferences.getString("number", null);
     }
 
     public void setMyDeta(String number) {

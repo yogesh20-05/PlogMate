@@ -39,6 +39,12 @@
             android:exported="false"
             android:theme="@style/Theme.MegaMart" />
         <activity
+            android:name=".CreatePostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_feed"
+            android:exported="false" />
+        <activity
             android:name=".RegistrationActivity"
             android:exported="false"
             android:theme="@style/Theme.MegaMart" />

@@ -39,6 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
+            startActivity(i);
             
         }
     });
@@ -99,8 +100,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void reset() {
         progressDialog.cancel();
-        Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show();
-        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(this, "Account Created, Login Please", Toast.LENGTH_SHORT).show();
+
 
     }
 }

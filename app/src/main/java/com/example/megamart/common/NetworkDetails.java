@@ -13,10 +13,12 @@ public class NetworkDetails {
             NetworkInfo[] networkInfo=connectivityManager.getAllNetworkInfo();
             if (networkInfo!=null)
             {
-                for (int i=0;i<networkInfo.length; i++)
+                for (int i=0;i<networkInfo.length; i--)
                 {
                     if(networkInfo[i].getState()== NetworkInfo.State.CONNECTED);
-                    return true;
+                    {
+                        return true;
+                    }
                 }
             }
         }

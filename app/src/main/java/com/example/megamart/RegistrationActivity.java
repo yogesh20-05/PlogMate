@@ -35,7 +35,7 @@ public class RegistrationActivity extends AppCompatActivity {
         binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-    binding.regToLog.setOnClickListener(new View.OnClickListener() {
+    binding.tvcreateaccount.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
@@ -78,6 +78,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                         .getInstance()
                                         .collection("Users")
                                         .document(FirebaseAuth.getInstance().getUid()).set(userModel);
+                                Intent i=new Intent(RegistrationActivity.this, LoginActivity.class);
+                                startActivity(i);
 
                                 reset();
 

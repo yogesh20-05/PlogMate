@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/ivloginimage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"
         android:src="@drawable/top_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,15 +40,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginTop="45dp"
+        tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="309dp"
         tools:ignore="MissingConstraints">
 
 
         <EditText
             android:id="@+id/etRegisterName"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/edittext_background"
@@ -58,16 +59,16 @@
             android:hint="Name"
             android:inputType="text"
             android:padding="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="250dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etRegisterphno"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -80,14 +81,14 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
 
         <EditText
             android:id="@+id/etRegisterEmailid"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -100,13 +101,13 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etRegisterrUsername"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -119,13 +120,13 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etRegisterPassword"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:autofillHints="password"
@@ -138,7 +139,7 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <CheckBox
@@ -155,8 +156,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnRegisterregister"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
@@ -164,7 +165,7 @@
             android:text="Register"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 

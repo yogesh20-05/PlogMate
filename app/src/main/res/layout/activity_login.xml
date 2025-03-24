@@ -27,12 +27,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvhi"
         android:text="Hi, \nPlease Login"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginStart="20dp"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="#ffffff"
-        app:layout_MarginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -54,13 +53,13 @@
             android:textColor="@color/black"
             android:text="Email"
             android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_marginTop="5dp"/>
+            android:textSize="19sp"
+            android:layout_marginTop="30dp"/>
 
         <EditText
-            android:id="@id/tvemail"
+            android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
@@ -68,7 +67,7 @@
             android:padding="12dp"
             android:textColor="#707070"
             android:textColorHint="@color/black"
-            android:textSize="20dp"
+            android:textSize="15dp"
             tools:ignore="TextSizeCheck" />
 
         <TextView
@@ -78,13 +77,13 @@
             android:textColor="@color/black"
             android:text="Password"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="19sp"
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@id/tvpassword"
+            android:id="@+id/etLoginPassword"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
@@ -92,12 +91,12 @@
             android:padding="12dp"
             android:textColor="#707070"
             android:textColorHint="@color/black"
-            android:textSize="20dp"
+            android:textSize="15dp"
             tools:ignore="TextSizeCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:id="@+id/btnLoginlogin"
             android:layout_marginTop="35dp"
             android:background="@drawable/button_background"
@@ -105,19 +104,18 @@
             android:textColor="@color/black"
             android:text="Login"
             android:textStyle="bold"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="330dp"
+        <TextView
+            android:id="@+id/tvRegistration"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="New user ? click here.."
-            android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:text="---- New User ? Create Account ----"
             android:textStyle="italic"
-            tools:ignore="MissingConstraints,TextSizeCheck" />
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginTop="210dp"/>
 
     </LinearLayout>
 

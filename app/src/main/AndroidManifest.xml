@@ -40,16 +40,17 @@
             android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".CreatePostActivity"
+            android:theme="@style/Theme.MegaMart"
             android:exported="false" />
 
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
-          />
+                    />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/Theme.MegaMart" />
+            />
         <activity
             android:name=".SplashActivity"
             android:exported="true">

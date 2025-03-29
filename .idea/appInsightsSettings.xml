@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.megamart" />
-                  <option name="mobileSdkAppId" value="1:842071205675:android:072842b59b5699377ac76e" />
-                  <option name="projectId" value="megamart-ef919" />
-                  <option name="projectNumber" value="842071205675" />
+                  <option name="mobileSdkAppId" value="1:157561882210:android:06082c08eb68a50edc733b" />
+                  <option name="projectId" value="ploggmate-2829b" />
+                  <option name="projectNumber" value="157561882210" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -1,24 +1,66 @@
 package com.example.megamart;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.util.Log;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EditEventActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_edit_event);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        setContentView(R.layout.activity_home);
+
+        fetchEvents();  // Call API to fetch events
+        editEvent(1, "New Event", "2025-04-01", "10:00 AM", "New Address"); // Example update
+    }
+
+    // Fetch events from API
+    private void fetchEvents() {
+        RetrofitClient.getInstance().getApiService().getEvents().enqueue(new Callback<List<EventModel>>() {
+            @Override
+            public void onResponse(Call<List<EventModel>> call, Response<List<EventModel>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<EventModel> events = response.body();
+                    for (EventModel event : events) {
+                        Log.d(TAG, "Event: " + event.getName());
+                    }
+                } else {
+                    Log.e(TAG, "Failed to fetch events");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<EventModel>> call, Throwable t) {
+                Log.e(TAG, "Error: " + t.getMessage());
+            }
         });
+    }
+
+    // Edit event
+    private void editEvent(int eventId, String name, String date, String time, String address) {
+        RetrofitClient.getInstance().getApiService().editEvent(eventId, name, date, time, address)
+                .enqueue(new Callback<ResponseModel>() {
+                    @Override
+                    public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            Toast.makeText(EditEventActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(EditEventActivity.this, "Failed to update event", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        Log.e(TAG, "Error: " + t.getMessage());
+                    }
+                });
     }
 }

@@ -1,46 +1,68 @@
 package com.example.megamart;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
-import com.example.megamart.AddEventActivity;
-import com.example.megamart.EditEventActivity;
-import com.example.megamart.R;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrganizeActivity extends AppCompatActivity {
 
-    private AppCompatButton btnAddEvent, btneditEvent;
+    Button btnAddEvent, btnEditEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organize);
 
-        // Initialize buttons
         btnAddEvent = findViewById(R.id.btnaddevent);
-        btneditEvent = findViewById(R.id.btneditevent);
+        btnEditEvent = findViewById(R.id.btneditevent);
 
-        // Set OnClickListener for Add Event button
         btnAddEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Open AddEventActivity
-                Intent intent = new Intent(OrganizeActivity.this, AddEventActivity.class);
-                startActivity(intent);
+                addEvent();
             }
         });
+    }
 
-        // Set OnClickListener for Remove Event button
-        btneditEvent.setOnClickListener(new View.OnClickListener() {
+    private void addEvent() {
+        String url = "http://192.168.1.100/event_api/add_event.php"; // Your local API URL
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(OrganizeActivity.this, "Event Added!", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(OrganizeActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
             @Override
-            public void onClick(View v) {
-                // Open RemoveEventActivity
-                Intent intent = new Intent(OrganizeActivity.this, EditEventActivity.class);
-                startActivity(intent);
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("title", "Meeting");
+                params.put("date", "2025-04-01");
+                params.put("time", "10:00");
+                params.put("location", "Conference Room");
+                params.put("description", "Monthly team meeting");
+                return params;
             }
-        });
+        };
+
+        queue.add(stringRequest);
     }
 }

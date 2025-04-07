@@ -37,7 +37,7 @@ public class EventModel {
         return name;
     }
 
-    public String getDate() {
+    public String getDate()      {
         return date;
     }
 

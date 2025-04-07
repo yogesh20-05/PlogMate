@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:title="Administration"
         android:id="@+id/menuNavAdministration"
-        app:showAsAction="always"
         android:icon="@drawable/icon_admin"/>
+
 
     <item
         android:title="Organize Event"
-        android:id="@+id/menuNavOG"
-        app:showAsAction="always"
+        android:id="@+id/menuNavOE"
+
         android:icon="@drawable/icon_og"/>
 
     <item
         android:title="Send Alerts"
         android:id="@+id/menuNavSA"
         android:icon="@drawable/icon_alert"
-        app:showAsAction="always"/>
+        />
 
 
     <item
         android:title="View Insights"
         android:id="@+id/menuNavVI"
-        app:showAsAction="always"
+
         android:icon="@drawable/icon_insights"/>
     <item
         android:title=" Manage Funds"
         android:id="@+id/menuNavMF"
         android:icon="@drawable/icon_mg"
-        app:showAsAction="always"/>
+        />
 
 </menu>

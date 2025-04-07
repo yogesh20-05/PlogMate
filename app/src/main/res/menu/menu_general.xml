@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-    <item android:title="Map"
+    <item android:title="Logout"
         app:showAsAction="always"
-        android:icon="@drawable/icon_map"
-        android:id="@+id/menu_item_map"/>
+        android:icon="@drawable/icon_admin"
+        android:id="@+id/menu_item_admin"/>
+
 
     <item android:title="Logout"
         app:showAsAction="always"

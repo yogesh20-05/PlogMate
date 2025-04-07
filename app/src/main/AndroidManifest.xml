@@ -37,7 +37,7 @@
         <activity
             android:name=".HomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.MegaMart" />
+            android:theme="@style/Base.Theme.MegaMart" />
         <activity
             android:name=".CreatePostActivity"
             android:exported="false" />

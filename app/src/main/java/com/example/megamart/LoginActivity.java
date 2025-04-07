@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        setTitle("PlogMate");
+
         IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkChangeListener,intentFilter);
     }
@@ -64,16 +64,18 @@ public class LoginActivity extends AppCompatActivity {
         unregisterReceiver(networkChangeListener);
     }
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
-        setTitle("HomeActivity");
+
         EdgeToEdge.enable(this);
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         etPassword=findViewById(R.id.etLoginPassword);
         etLoginEmail=findViewById(R.id.etLoginEmail);

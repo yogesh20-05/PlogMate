@@ -16,7 +16,7 @@ public class EditEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_edit_event);
 
         fetchEvents();  // Call API to fetch events
         editEvent(1, "New Event", "2025-04-01", "10:00 AM", "New Address"); // Example update

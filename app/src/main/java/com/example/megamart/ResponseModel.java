@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponseModel {
 
-    @SerializedName("status")
+    /*@SerializedName("status")
     private String status;
 
     @SerializedName("message")
@@ -16,5 +16,5 @@ public class ResponseModel {
 
     public String getMessage() {
         return message;
-    }
+    }*/
 }

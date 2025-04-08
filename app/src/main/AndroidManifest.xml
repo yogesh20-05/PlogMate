@@ -13,26 +13,46 @@
         android:label="PlogMate"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MegaMart"
+        android:theme="@style/Base.Theme.MegaMart"
         tools:targetApi="31">
         <activity
+            android:name=".SendAlertsActivity"
+
+            android:exported="false" />
+        <activity
+            android:name=".OrganizeEventActivity"
+                        android:exported="false" />
+        <activity
+            android:name=".ViewInsightsActivity"
+            android:theme="@style/Theme.MegaMart"
+            android:exported="false" />
+        <activity
+            android:name=".ManageFundActivity"
+
+            android:exported="false" />
+        <activity
+            android:name=".AdministrationActivity"
+
+            android:exported="false" />
+        <activity
             android:name=".EditEventActivity"
+
             android:exported="false" />
         <activity
             android:name=".AddEventActivity"
+
             android:exported="false" />
-
-
         <activity
             android:name=".HelpActivity"
             android:exported="false"
-            android:theme="@style/Theme.MegaMart"/>
+            android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".SettingActivity"
             android:exported="false"
-            android:theme="@style/Theme.MegaMart"/>
+            android:theme="@style/Theme.MegaMart" />
         <activity
             android:name=".OTPVerificationActivity"
+            android:theme="@style/Base.Theme.MegaMart"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -41,11 +61,9 @@
         <activity
             android:name=".CreatePostActivity"
             android:exported="false" />
-
         <activity
             android:name=".RegistrationActivity"
-            android:exported="false"
-          />
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"

@@ -1,108 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".SocialShelfFragment">
 
-    <!-- Image at the Top (Optional) -->
-    <ImageView
-        android:id="@+id/ploggingdrive"
-        android:layout_width="280dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/ss" />
 
-    <!-- CardView for Book List -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="6dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:orientation="vertical">
-
-            <!-- Header for List -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Book Name"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="#4A4A4A"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bookmark"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="#4A4A4A"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerBookList"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:padding="8dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-                <CheckBox
-                    android:id="@+id/checkBoxBookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginBottom="155dp" />
-            </LinearLayout>
-
-            <!-- Edit Notes Field -->
-            <EditText
-                android:id="@+id/editNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter notes here"
-                android:padding="8dp"
-                android:background="@android:drawable/editbox_background"
-                android:textSize="14sp"
-                android:layout_marginTop="10dp" />
-
-            <!-- Save Button -->
-            <Button
-                android:id="@+id/btnSaveNotes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save Notes"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:padding="10dp"
-                android:backgroundTint="@color/white"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+</FrameLayout>

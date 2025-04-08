@@ -11,7 +11,7 @@ import retrofit2.Response;
 
 public class EditEventActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    /*private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,5 +62,5 @@ public class EditEventActivity extends AppCompatActivity {
                         Log.e(TAG, "Error: " + t.getMessage());
                     }
                 });
-    }
+    }*/
 }

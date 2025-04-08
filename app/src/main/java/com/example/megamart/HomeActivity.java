@@ -15,10 +15,12 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar; // Import Toolbar
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -45,20 +47,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
-       // drawerLayout = findViewById(R.id.draw)
+        //drawerLayout = findViewById(R.id.draw)
         //imp
-        drawerLayout = findViewById(R.id.navid);
-        buttonDrawerToggle = findViewById(R.id.btnDrawerToggle);
-        navigationView = findViewById(R.id.navigationView);
 
 
 
-        buttonDrawerToggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.open();
-            }
-        });
 
 
 
@@ -67,16 +60,65 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
 
         //start the next og navigation drawer from here
         // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.toolbar); // Assuming you have a Toolbar with id "toolbar"
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-           // getSupportActionBar().setTitle("PlogMate"); // Set your app title
-        }
 
+
+
+
+        // Initialize Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar); // Set as ActionBar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable Home button
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        // Initialize DrawerLayout and NavigationView
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.menuNavAdministration) {
+                    Toast.makeText(HomeActivity.this, "Administration", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this, AdministrationActivity.class));
+                    drawerLayout.closeDrawers();
+                    return true;
+                } else if (itemId == R.id.menuNavOE) {
+                    Toast.makeText(HomeActivity.this, "Organize Event", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this, OrganizeEventActivity.class));
+                    drawerLayout.closeDrawers();
+                    return true;
+                } else if (itemId == R.id.menuNavSA) {
+                    Toast.makeText(HomeActivity.this, "Send Alerts", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this, SendAlertsActivity.class));
+                    drawerLayout.closeDrawers();
+                    return true;
+                } else if (itemId == R.id.menuNavVI) {
+                    Toast.makeText(HomeActivity.this, "View Insights", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this, ViewInsightsActivity.class));
+                    drawerLayout.closeDrawers();
+                    return true;
+                } else if (itemId == R.id.menuNavMF) {
+                    Toast.makeText(HomeActivity.this, "Manage Funds", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this, ManageFundActivity.class));
+                    drawerLayout.closeDrawers();
+                    return true;
+                }
+                return true;
+            }
+        });
+
+        // Drawer Toggle (☰ Hamburger Menu)
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState(); // Show Hamburger Icon
+        getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, ploggingFragment).commit();
+        bottomNavigationView = findViewById(R.id.homeBottomNav);
         bottomNavigationView = findViewById(R.id.homeBottomNav);
         bottomNavigationView.setSelectedItemId(R.id.menuHomeNavPlogging);
         bottomNavigationView.setOnItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
+       // getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
     }
 
     @Override
@@ -93,10 +135,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
             Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(HomeActivity.this, SettingActivity.class));
             return true;
-        } else if (itemId == R.id.menu_item_admin) {
-            Toast.makeText(HomeActivity.this, "admin", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(HomeActivity.this, EditEventActivity.class));
-            return true;
         }
         else if (itemId == R.id.menu_item_aboutus) {
             Toast.makeText(HomeActivity.this, "About us", Toast.LENGTH_SHORT).show(); // Corrected string
@@ -106,7 +144,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
             Toast.makeText(HomeActivity.this, "Help", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(HomeActivity.this, HelpActivity.class));
             return true;
-        } else if (itemId == R.id.menu_item_logout) {
+        }
+        else if (itemId == R.id.menu_item_logout) {
             new AlertDialog.Builder(this) // Use 'this' instead of 'HomeActivity.this' for context
                     .setTitle("PlogMate") // Consistent title
                     .setMessage("Are you sure you want to log out?") // Clearer message
@@ -121,20 +160,33 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         return super.onOptionsItemSelected(item);
     }
 
+
+
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.menuHomeNavExplore) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, exploreFragment).commit();
-        } else if (itemId == R.id.menuHomeNavPlogging) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
-        } else if (itemId == R.id.menuHomeNavLalbindi) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, lalbindiFragment).commit();
-        } else if (itemId == R.id.menuHomeNavSocialShelf) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, socialShelfFragment).commit();
-        } else if (itemId == R.id.menuHomeNavMyprofile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, myProfileFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, exploreFragment).commit();
         }
+
+        else if (itemId == R.id.menuHomeNavPlogging) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, ploggingFragment).commit();
+        } else if (itemId == R.id.menuHomeNavLalbindi) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, lalbindiFragment).commit();
+        } else if (itemId == R.id.menuHomeNavSocialShelf) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, socialShelfFragment).commit();
+        } else if (itemId == R.id.menuHomeNavMyprofile) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, myProfileFragment).commit();
+        }
+
+
         return true;
+    }
+
+    private void replaceFragment(androidx.fragment.app.Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.homeFrameLayout, fragment);
     }
 }

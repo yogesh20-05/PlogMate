@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    @GET("getEvents.php")
+    /*@GET("getEvents.php")
     Call<List<EventModel>> getEvents();  // Fetch all events
 
     @GET("editEvent.php")
@@ -17,5 +17,5 @@ public interface ApiService {
             @Query("date") String date,
             @Query("time") String time,
             @Query("address") String address
-    );
+    );*/
 }

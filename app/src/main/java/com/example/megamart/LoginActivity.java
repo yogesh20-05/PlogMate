@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
         /*binding.btnLoginlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* if(etLoginEmail.getText().toString().isEmpty())
+                if(etLoginEmail.getText().toString().isEmpty())
                 {
                     etLoginEmail.setError("Please enter username ");
                 }
@@ -143,6 +143,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
 
 
 

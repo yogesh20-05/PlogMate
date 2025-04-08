@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar; // Import Toolbar
@@ -45,20 +46,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
-       // drawerLayout = findViewById(R.id.draw)
+       //drawerLayout = findViewById(R.id.draw)
         //imp
-        drawerLayout = findViewById(R.id.navid);
-        buttonDrawerToggle = findViewById(R.id.btnDrawerToggle);
-        navigationView = findViewById(R.id.navigationView);
 
 
 
-        buttonDrawerToggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.open();
-            }
-        });
 
 
 
@@ -67,16 +59,32 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
 
         //start the next og navigation drawer from here
         // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.toolbar); // Assuming you have a Toolbar with id "toolbar"
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-           // getSupportActionBar().setTitle("PlogMate"); // Set your app title
-        }
 
+
+
+
+        // Initialize Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar); // Set as ActionBar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable Home button
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        // Initialize DrawerLayout and NavigationView
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(null);
+
+        // Drawer Toggle (☰ Hamburger Menu)
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState(); // Show Hamburger Icon
+
+        bottomNavigationView = findViewById(R.id.homeBottomNav);
         bottomNavigationView = findViewById(R.id.homeBottomNav);
         bottomNavigationView.setSelectedItemId(R.id.menuHomeNavPlogging);
         bottomNavigationView.setOnItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
+       // getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
     }
 
     @Override
@@ -125,15 +133,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.menuHomeNavExplore) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, exploreFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, exploreFragment).commit();
         } else if (itemId == R.id.menuHomeNavPlogging) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, ploggingFragment).commit();
         } else if (itemId == R.id.menuHomeNavLalbindi) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, lalbindiFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, lalbindiFragment).commit();
         } else if (itemId == R.id.menuHomeNavSocialShelf) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, socialShelfFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, socialShelfFragment).commit();
         } else if (itemId == R.id.menuHomeNavMyprofile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, myProfileFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, myProfileFragment).commit();
         }
         return true;
     }

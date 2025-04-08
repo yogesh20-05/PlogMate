@@ -34,12 +34,12 @@ public class PloggingFragment extends Fragment {
         ploggingDrive = view.findViewById(R.id.ploggingdrive);
 
         // Fetch and update image dynamically
-        fetchLatestImage();
+        //fetchLatestImage();
 
         return view;
     }
 
-    private void fetchLatestImage() {
+    /*private void fetchLatestImage() {
         Calendar calendar = Calendar.getInstance();
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 
@@ -61,5 +61,5 @@ public class PloggingFragment extends Fragment {
                 }
             });
         }
-    }
+    }*/
 }

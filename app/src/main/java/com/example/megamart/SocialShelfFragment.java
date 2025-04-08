@@ -36,9 +36,6 @@ public class SocialShelfFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.recyclerBookList);
-        editNotes = view.findViewById(R.id.editNotes);
-        btnSaveNotes = view.findViewById(R.id.btnSaveNotes);
         ploggingdrive = view.findViewById(R.id.ploggingdrive);
 
         // Initialize book list

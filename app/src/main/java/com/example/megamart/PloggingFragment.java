@@ -1,65 +1,79 @@
 package com.example.megamart;
 
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-import com.example.megamart.R;
-import java.util.Calendar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PloggingFragment extends Fragment {
-
-    private ImageView ploggingDrive;
 
     public PloggingFragment() {
         // Required empty public constructor
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_plogging, container, false);
-
-        // Initialize ImageView
-        ploggingDrive = view.findViewById(R.id.ploggingdrive);
-
-        // Fetch and update image dynamically
-        //fetchLatestImage();
-
-        return view;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_plogging, container, false);
     }
 
-    /*private void fetchLatestImage() {
-        Calendar calendar = Calendar.getInstance();
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        if (dayOfWeek == Calendar.SUNDAY) { // Load image only on Sundays
-            DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("ploggingDriveImage");
+        ViewPager2 photoSlider = view.findViewById(R.id.photoImage);
 
-            databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.exists()) {
-                        String imageUrl = snapshot.getValue(String.class);
-                        Picasso.get().load(imageUrl).into(ploggingDrive); // Load image dynamically
-                    }
-                }
+        // Set up the image slider
+        List<Integer> images = new ArrayList<>();
+        images.add(R.drawable.drive); // Replace with your drawable images
+        images.add(R.drawable.plogging);
+        images.add(R.drawable.ss);
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    // Handle error
-                }
-            });
+        ImageSliderAdapter sliderAdapter = new ImageSliderAdapter(images);
+        photoSlider.setAdapter(sliderAdapter);
+    }
+
+    // Simple Adapter for Image Slider
+    private static class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.SliderViewHolder> {
+        private final List<Integer> imageList;
+
+        public ImageSliderAdapter(List<Integer> imageList) {
+            this.imageList = imageList;
         }
-    }*/
+
+        @NonNull
+        @Override
+        public SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_photo_slider, parent, false);
+            return new SliderViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
+            holder.imageView.setImageResource(imageList.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return imageList.size();
+        }
+
+        static class SliderViewHolder extends RecyclerView.ViewHolder {
+            ImageView imageView;
+
+            SliderViewHolder(@NonNull View itemView) {
+                super(itemView);
+                imageView = itemView.findViewById(R.id.photoImage);
+            }
+        }
+    }
 }

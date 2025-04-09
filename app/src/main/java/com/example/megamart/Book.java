@@ -1,16 +1,41 @@
 package com.example.megamart;
 
-
 public class Book {
-    private String name;
-    private boolean isBookmarked;
 
-    public Book(String name, boolean isBookmarked) {
-        this.name = name;
-        this.isBookmarked = isBookmarked;
+    private String author;
+    private String title;
+    private String notes;
+
+    // Constructor
+    public Book(String author, String title) {
+        this.author = author;
+        this.title = title;
+        this.notes = notes;
     }
 
-    public String getName() { return name; }
-    public boolean isBookmarked() { return isBookmarked; }
-    public void setBookmarked(boolean bookmarked) { isBookmarked = bookmarked; }
+    // Getters and Setters for author, title, and notes
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 }

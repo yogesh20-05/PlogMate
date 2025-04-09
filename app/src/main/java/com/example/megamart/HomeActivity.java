@@ -1,16 +1,11 @@
 package com.example.megamart;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,23 +15,23 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar; // Import Toolbar
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class HomeActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
     DrawerLayout drawerLayout;
-    ImageButton buttonDrawerToggle;
     NavigationView navigationView;
 
     ExploreFragment exploreFragment = new ExploreFragment();
     SocialShelfFragment socialShelfFragment = new SocialShelfFragment();
-    LalbindiFragment lalbindiFragment = new LalbindiFragment();
-    PloggingFragment ploggingFragment = new PloggingFragment();
+     LalbindiFragment lalbindiFragment = new LalbindiFragment();
+      PloggingFragment ploggingFragment = new PloggingFragment();
     MyProfileFragment myProfileFragment = new MyProfileFragment();
 
     @SuppressLint("MissingInflatedId")
@@ -67,45 +62,42 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         // Initialize Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar); // Set as ActionBar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable Home button
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true); // Enable Home button
         getSupportActionBar().setHomeButtonEnabled(true);
 
         // Initialize DrawerLayout and NavigationView
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
 
-                if (itemId == R.id.menuNavAdministration) {
-                    Toast.makeText(HomeActivity.this, "Administration", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomeActivity.this, AdministrationActivity.class));
-                    drawerLayout.closeDrawers();
-                    return true;
-                } else if (itemId == R.id.menuNavOE) {
-                    Toast.makeText(HomeActivity.this, "Organize Event", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomeActivity.this, OrganizeEventActivity.class));
-                    drawerLayout.closeDrawers();
-                    return true;
-                } else if (itemId == R.id.menuNavSA) {
-                    Toast.makeText(HomeActivity.this, "Send Alerts", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomeActivity.this, SendAlertsActivity.class));
-                    drawerLayout.closeDrawers();
-                    return true;
-                } else if (itemId == R.id.menuNavVI) {
-                    Toast.makeText(HomeActivity.this, "View Insights", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomeActivity.this, ViewInsightsActivity.class));
-                    drawerLayout.closeDrawers();
-                    return true;
-                } else if (itemId == R.id.menuNavMF) {
-                    Toast.makeText(HomeActivity.this, "Manage Funds", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomeActivity.this, ManageFundActivity.class));
-                    drawerLayout.closeDrawers();
-                    return true;
-                }
+            if (itemId == R.id.menuNavAdministration) {
+                Toast.makeText(HomeActivity.this, "Administration", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, AdministrationActivity.class));
+                drawerLayout.closeDrawers();
+                return true;
+            } else if (itemId == R.id.menuNavOE) {
+                Toast.makeText(HomeActivity.this, "Organize Event", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, OrganizeEventActivity.class));
+                drawerLayout.closeDrawers();
+                return true;
+            } else if (itemId == R.id.menuNavSA) {
+                Toast.makeText(HomeActivity.this, "Send Alerts", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, SendAlertsActivity.class));
+                drawerLayout.closeDrawers();
+                return true;
+            } else if (itemId == R.id.menuNavVI) {
+                Toast.makeText(HomeActivity.this, "View Insights", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, ViewInsightsActivity.class));
+                drawerLayout.closeDrawers();
+                return true;
+            } else if (itemId == R.id.menuNavMF) {
+                Toast.makeText(HomeActivity.this, "Manage Funds", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, ManageFundActivity.class));
+                drawerLayout.closeDrawers();
                 return true;
             }
+            return true;
         });
 
         // Drawer Toggle (☰ Hamburger Menu)
@@ -143,6 +135,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         } else if (itemId == R.id.menu_item_help) {
             Toast.makeText(HomeActivity.this, "Help", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(HomeActivity.this, HelpActivity.class));
+            return true;
+        }
+        else if (itemId == R.id.menuHomeMyLocation) {
+            Toast.makeText(HomeActivity.this, "Admin", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HomeActivity.this, AdminActivity.class));
             return true;
         }
         else if (itemId == R.id.menu_item_logout) {
@@ -185,8 +182,4 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         return true;
     }
 
-    private void replaceFragment(androidx.fragment.app.Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.homeFrameLayout, fragment);
-    }
 }

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="40dp"
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".ManageFundsActivity">
 
+    <!-- Title Section -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
@@ -16,77 +16,100 @@
         android:text="Manage Funds"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:layout_marginTop="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Current Balance Section -->
     <TextView
         android:id="@+id/currentBalanceTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Current Balance: $0.00"
+        android:text="Current Balance: $1200.00"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
-    <!-- Section: Brand Collaboration -->
+    <!-- Brand Collaboration Section -->
     <TextView
-        android:id="@+id/collaborationHeader"
+        android:id="@+id/brandCollabLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Brand Collaboration"
-        android:textSize="20sp"
         android:textStyle="bold"
+        android:textSize="18sp"
+
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/currentBalanceTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/collaborationRecyclerView"
+    <!-- CardView for Brand Collaborations -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/collaborationCardView"
         android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/collaborationHeader"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/brandCollabLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_collaboration" />
+        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/collaborationRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_collaboration" />
+    </androidx.cardview.widget.CardView>
 
+    <!-- Donations Section -->
     <Button
-        android:id="@+id/addCollaborationButton"
+        android:id="@+id/addBrandCollaborationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Add Collaboration"
-        app:layout_constraintTop_toBottomOf="@id/collaborationRecyclerView"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Section: Donations Management -->
+        android:text="Add Collaboration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/collaborationCardView" />
+
     <TextView
-        android:id="@+id/donationsHeader"
+        android:id="@+id/donationsLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Donations"
-        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/addBrandCollaborationButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addCollaborationButton"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/donationsRecyclerView"
+    <!-- CardView for Donations -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/donationsCardView"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/donationsHeader"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/donationsLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_donation" />
+        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/donationsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_donation" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Financial Overview Section -->
 
     <Button
         android:id="@+id/recordDonationButton"
@@ -94,64 +117,68 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Record Donation"
-        app:layout_constraintTop_toBottomOf="@id/donationsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/donationsCardView" />
+
+    <TextView
+        android:id="@+id/financialOverviewLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Financial Overview"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/recordDonationButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Section: Financial Overview -->
-    <TextView
-        android:id="@+id/financialOverviewHeader"
+    <!-- CardView for Financial Overview -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/financialOverviewCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Financial Overview"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="18dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/financialOverviewLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recordDonationButton" />
-
-    <TextView
-        android:id="@+id/totalDonationsReceivedTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Total Donations Received: $0.00"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/financialOverviewHeader" />
-
-    <TextView
-        android:id="@+id/totalFundsSpentTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Total Funds Spent: $0.00"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalDonationsReceivedTextView" />
-
-    <TextView
-        android:id="@+id/netFundsTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Net Funds: $0.00"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalFundsSpentTextView" />
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/totalDonationsReceivedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Donations Received: $0.00"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/totalFundsSpentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Funds Spent: $0.00"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/netFundsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Net Funds: $0.00"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/viewTransactionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="View Transactions"
+        app:layout_constraintTop_toBottomOf="@id/financialOverviewCardView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/netFundsTextView" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

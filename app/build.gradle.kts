@@ -64,12 +64,13 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation(libs.ui.text.android)
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
     // Testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs. espresso.core)
+    androidTestImplementation(libs.espresso.core)
 
     implementation("com.google.zxing:core:3.5.1")
     implementation("com.google.firebase:firebase-firestore:25.1.3")
@@ -96,5 +97,6 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.itextpdf:itextg:5.5.10")
+    annotationProcessor(libs.glide.compiler)
 }

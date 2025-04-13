@@ -34,4 +34,7 @@
     <string name="event_insights">Event Insights</string>
     <string name="download_report">Download Report</string>
     <string name="type_your_alert_here">Type your alert here...</string>
+    <string name="view_detailed_report">View Detailed Report</string>
+    <string name="download_pdf">Download PDF</string>
+    <string name="select_date_range">Select Date Range:</string>
 </resources>

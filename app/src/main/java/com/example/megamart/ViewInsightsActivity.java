@@ -1,6 +1,7 @@
 package com.example.megamart;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.Button;
@@ -23,7 +24,7 @@ public class ViewInsightsActivity extends AppCompatActivity {
 
     private final int totalEvents = 25; // Dummy value
     private final int totalVolunteers = 85; // Dummy value
-
+Button viewDetailedReportButton;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +36,20 @@ public class ViewInsightsActivity extends AppCompatActivity {
         TextView totalEventsText = findViewById(R.id.totalEvents);
         TextView totalVolunteersText = findViewById(R.id.totalVolunteers);
         Button generatePDFBtn = findViewById(R.id.downloadPdfBtn);
+        Button  viewDetailedReportButton= findViewById(R.id.viewDetailedReportButton);
 
         totalEventsText.setText("Total Events: " + totalEvents);
         totalVolunteersText.setText("Total Volunteers: " + totalVolunteers);
 
         generatePDFBtn.setOnClickListener(v -> generatePDF());
+        viewDetailedReportButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ViewInsightsActivity.this, DetailedReportActivity.class);
+            intent.putExtra("startDate", getSelectedDate(startDatePicker));
+            intent.putExtra("endDate", getSelectedDate(endDatePicker));
+            startActivity(intent);
+        });
     }
+
 
     private void generatePDF() {
         Document document = new Document();

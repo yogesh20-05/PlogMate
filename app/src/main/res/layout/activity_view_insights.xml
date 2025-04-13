@@ -1,10 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewInsightsActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:ignore="VisualLintBounds">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Title Section -->
+    <TextView
+        android:id="@+id/titleText"
+        android:text="@string/event_insights"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp" />
+
+    <!-- Event Summary Section (Total Events, Volunteers, Trash Collected) -->
+    <CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/event_summary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/totalEvents"
+                android:text="@string/total_events_5"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/totalVolunteers"
+                android:text="@string/total_volunteers_20"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/totalTrash"
+                android:text="@string/total_trash_collected_50kg"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </CardView>
+
+    <!-- Simple Date Picker Section (Optional) -->
+    <TextView
+        android:text="@string/select_date_range_optional"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:layout_marginBottom="19dp">
+
+        <DatePicker
+            android:id="@+id/startDatePicker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="@string/to"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:gravity="center_vertical" />
+
+        <DatePicker
+            android:id="@+id/endDatePicker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Action Buttons (Preview, Download, Share) -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp">
+
+        <!-- Preview Button -->
+
+        <!-- Download Button -->
+        <Button
+            android:id="@+id/previewReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:minHeight="48dp"
+            android:text="@string/preview_report"
+            android:textColor="@android:color/black"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/downloadReportButton"
+            android:text="@string/download_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!-- Share Button -->
+        <Button
+            android:id="@+id/shareReportButton"
+            android:text="@string/share_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            tools:ignore="VisualLintButtonSize" />
+
+    </LinearLayout>
+
+    <!-- Loading Indicator (Invisible by default) -->
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true" />
+
+</LinearLayout>

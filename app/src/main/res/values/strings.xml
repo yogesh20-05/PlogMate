@@ -23,4 +23,15 @@
     <string name="type_your_alert_here_example_remember_sharp_6_am_be_ready_for_the_cleaning_drive_at_budd_leni_let_s_make_it_awesome">Type your alert here... Example: Remember - sharp 6 AM, be ready for the Cleaning Drive at Budd Leni! Let’s make it awesome!</string>
     <string name="send_alert">Send Alert</string>
     <string name="send">Send</string>
+    <string name="event_summary">Event Summary</string>
+    <string name="preview_report">Preview Report</string>
+    <string name="to">to</string>
+    <string name="select_date_range_optional">Select Date Range (Optional)</string>
+    <string name="share_report">Share Report</string>
+    <string name="total_events_5">Total Events: 5</string>
+    <string name="total_trash_collected_50kg">Total Trash Collected: 50kg</string>
+    <string name="total_volunteers_20">Total Volunteers: 20</string>
+    <string name="event_insights">Event Insights</string>
+    <string name="download_report">Download Report</string>
+    <string name="type_your_alert_here">Type your alert here...</string>
 </resources>

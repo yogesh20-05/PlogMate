@@ -11,12 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class ViewInsightsActivity extends AppCompatActivity {
 
@@ -45,35 +44,39 @@ public class ViewInsightsActivity extends AppCompatActivity {
 
     private void generatePDF() {
         Document document = new Document();
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/event_insights.pdf";
-
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            // Generate unique filename using timestamp
+            String timeStamp = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss").format(new java.util.Date());
+            String fileName = "Insights_Report_" + timeStamp + ".pdf";
+
+            // Path to Downloads folder
+            String directoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+            File file = new File(directoryPath, fileName);
+
+            // Create PDF writer
+            PdfWriter.getInstance(document, new FileOutputStream(file));
             document.open();
 
-            document.add(new Paragraph("Event Insights Report"));
-            document.add(new Paragraph(" "));
-
-            int startDay = startDatePicker.getDayOfMonth();
-            int startMonth = startDatePicker.getMonth() + 1;
-            int startYear = startDatePicker.getYear();
-
-            int endDay = endDatePicker.getDayOfMonth();
-            int endMonth = endDatePicker.getMonth() + 1;
-            int endYear = endDatePicker.getYear();
-
-            document.add(new Paragraph("Date Range: " + startDay + "/" + startMonth + "/" + startYear +
-                    " - " + endDay + "/" + endMonth + "/" + endYear));
-
+            // Add content
+            document.add(new Paragraph("PlogMate Report"));
+            document.add(new Paragraph("From: " + getSelectedDate(startDatePicker)));
+            document.add(new Paragraph("To: " + getSelectedDate(endDatePicker)));
             document.add(new Paragraph("Total Events: " + totalEvents));
             document.add(new Paragraph("Total Volunteers: " + totalVolunteers));
 
             document.close();
-            Toast.makeText(this, "PDF saved to Downloads", Toast.LENGTH_LONG).show();
 
-        } catch (DocumentException | IOException e) {
-            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "PDF saved: " + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(this, "Failed to generate PDF", Toast.LENGTH_SHORT).show();
         }
+    }
+    private String getSelectedDate(DatePicker datePicker) {
+        int day = datePicker.getDayOfMonth();
+        int month = datePicker.getMonth() + 1;
+        int year = datePicker.getYear();
+        return day + "/" + month + "/" + year;
     }
 }

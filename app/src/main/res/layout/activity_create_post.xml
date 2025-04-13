@@ -5,12 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="0dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreatePostActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -20,14 +29,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="0dp"
             android:id="@+id/ivCircleimg"
             android:src="@drawable/name"
 
@@ -42,7 +53,7 @@
             android:layout_toRightOf="@+id/ivCircleimg"
             android:background="@null"
             android:text="User"
-            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
             android:textSize="20sp"
             android:textColor="@color/black"
             android:layout_marginLeft="10dp"
@@ -50,15 +61,19 @@
             />
 
 
-    </RelativeLayout>
+    </LinearLayout>
     <EditText
-        android:text="type here"
+        android:hint="type here"
+        android:textSize="20dp"
         android:padding="10dp"
+        android:textColor="@color/black"
+        android:id="@+id/postTextCaption"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="150dp"
         android:gravity="start"
-        android:background="@color/trans"/>
+        android:background="@drawable/edittext_background"/>
 
 
 
@@ -69,7 +84,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         >
         <LinearLayout
 
@@ -93,6 +108,7 @@
                 <TextView
                     android:layout_marginRight="83dp"
                     android:gravity="center"
+                    android:id="@+id/tvAddIamge"
                     android:text="Add Photo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,6 +119,10 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:id="@+id/ivPickedImage"
+    android:layout_height="250dp"/>
 
 </LinearLayout>

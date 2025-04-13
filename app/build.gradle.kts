@@ -5,12 +5,11 @@ plugins {
 
 android {
     namespace = "com.example.megamart"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.megamart"
         minSdk = 31
-        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -51,57 +50,51 @@ dependencies {
     implementation(libs.firebase.auth)
 
     // Additional dependencies
-    implementation(libs.lottie)
-    implementation(libs.android.async.http)
-    implementation(libs.circleimageview)
-    implementation(libs.core)
-    implementation(libs.firebase.firestore)
-    implementation(libs.volley)
-    implementation(libs.retrofit)
-    implementation(libs.squareup.converter.gson)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
-    implementation(libs.squareup.picasso)
-    implementation(libs.firebase.database.v2100)
-    implementation(libs.firebase.storage)
-    implementation(libs.com.github.bumptech.glide.glide)
-    implementation(libs.support.annotations)
-    annotationProcessor(libs.compiler.v4160)
+    implementation("com.airbnb.android:lottie:6.0.0")
+    implementation("com.loopj.android:android-async-http:1.4.11")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.google.zxing:core:3.5.1")
+    implementation("com.google.firebase:firebase-firestore:25.1.3")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
     // Testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs. espresso.core)
 
-    implementation(libs.core)
-    implementation(libs.firebase.firestore)
-    implementation(libs.volley)
-    implementation(libs.retrofit)
-    implementation(libs.squareup.converter.gson)
-    implementation(platform(libs.firebase.bom.v33110))
-    implementation(libs.google.firebase.analytics)
-    implementation(libs.squareup.picasso)
-    implementation(libs.firebase.database.v2100)
-    implementation(libs.firebase.storage)
-    implementation(libs.com.github.bumptech.glide.glide)
-    annotationProcessor(libs.glide.compiler)
-    implementation(libs.android.async.http)
-    implementation(libs.circleimageview)
-    implementation(libs.core)
-    implementation(libs.firebase.firestore)
-    implementation(libs.volley)
-    implementation(libs.retrofit)
-    implementation(libs.squareup.converter.gson)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.com.google.firebase.firebase.analytics)
-    implementation(libs.picasso.v28)
-    implementation(libs.com.google.firebase.firebase.database)
-    implementation(libs.firebase.storage)
-    implementation(libs.com.github.bumptech.glide.glide)
-    annotationProcessor(libs.compiler.v4160)
-   implementation(libs.recyclerview)
-    implementation(libs.viewpager2)
-    //noinspection UseTomlInstead
-
-
+    implementation("com.google.zxing:core:3.5.1")
+    implementation("com.google.firebase:firebase-firestore:25.1.3")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.loopj.android:android-async-http:1.4.11")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.google.zxing:core:3.5.1")
+    implementation("com.google.firebase:firebase-firestore:25.1.3")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 }

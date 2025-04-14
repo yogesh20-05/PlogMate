@@ -45,4 +45,10 @@
     <string name="notifications">Notifications</string>
     <string name="language_settings">Language Settings</string>
     <string name="choose_theme">Choose Theme</string>
+    <string name="lock_screen_notifications">Lock screen notifications</string>
+    <string name="show_notifications">Show notifications</string>
+    <string name="sound">Sound</string>
+    <string name="notification_badges">Notification badges</string>
+    <string name="vibration">Vibration</string>
+    <string name="plogmate">PlogMate</string>
 </resources>

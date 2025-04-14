@@ -54,4 +54,6 @@
     <string name="enable_location_permission">Enable Location Permission</string>
     <string name="enable_storage_permission">Enable Storage Permission</string>
     <string name="done">Done</string>
+    <string name="loading">Loading...</string>
+    <string name="privacy_policy">Privacy Policy</string>
 </resources>

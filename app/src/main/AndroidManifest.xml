@@ -53,6 +53,9 @@
             android:name=".ViewInsightsActivity"
             android:exported="false" />
         <activity
+            android:name=".SecurityPrivacyActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
@@ -64,6 +67,7 @@
         <activity
             android:name=".ManageFundActivity"
             android:exported="false" />
+
         <activity
             android:name=".EditEventActivity"
             android:exported="false" />

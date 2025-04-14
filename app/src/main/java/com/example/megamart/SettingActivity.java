@@ -1,17 +1,13 @@
 package com.example.megamart;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-
-import java.util.Locale;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -52,6 +48,10 @@ public class SettingActivity extends AppCompatActivity {
             Intent intent = new Intent(SettingActivity.this,PermissionSettingActivity.class);
             startActivity(intent);
         });
+        btnSettingSecurity .setOnClickListener(v -> {
+            Intent intent = new Intent(SettingActivity.this, SecurityPrivacyActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showThemeSelectionDialog() {
@@ -61,10 +61,10 @@ public class SettingActivity extends AppCompatActivity {
         builder.setItems(themes, (dialog, which) -> {
             if (which == 0) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                saveToPrefs(THEME_KEY, "light");
+                saveToPrefs("light");
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                saveToPrefs(THEME_KEY, "dark");
+                saveToPrefs("dark");
             }
         });
         builder.show();
@@ -80,9 +80,9 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
 
-    private void saveToPrefs(String key, String value) {
+    private void saveToPrefs(String value) {
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putString(key, value);
+        editor.putString(SettingActivity.THEME_KEY, value);
         editor.apply();
     }
 }

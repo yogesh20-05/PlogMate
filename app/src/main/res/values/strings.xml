@@ -51,4 +51,7 @@
     <string name="notification_badges">Notification badges</string>
     <string name="vibration">Vibration</string>
     <string name="plogmate">PlogMate</string>
+    <string name="enable_location_permission">Enable Location Permission</string>
+    <string name="enable_storage_permission">Enable Storage Permission</string>
+    <string name="done">Done</string>
 </resources>

@@ -48,6 +48,10 @@ public class SettingActivity extends AppCompatActivity {
             Intent intent = new Intent(SettingActivity.this, NotificationSettingActivity.class);
             startActivity(intent);
         });
+        btnSettingPermission.setOnClickListener(v -> {
+            Intent intent = new Intent(SettingActivity.this,PermissionSettingActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showThemeSelectionDialog() {

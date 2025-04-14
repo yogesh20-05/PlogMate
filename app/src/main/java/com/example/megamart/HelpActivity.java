@@ -1,5 +1,8 @@
 package com.example.megamart;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -7,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.megamart.R;
+
+import java.util.Locale;
 
 public class HelpActivity extends AppCompatActivity {
 
@@ -48,4 +53,13 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
     }
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences prefs = newBase.getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String langCode = prefs.getString("AppLanguage", "en");
+        Locale locale = new Locale(langCode);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        Context context = newBase.createConfigurationContext(config);
+        super.attachBaseContext(context);}
 }

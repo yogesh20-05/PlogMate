@@ -1,7 +1,10 @@
 package com.example.megamart;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.Button;
@@ -17,6 +20,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Locale;
 
 public class ViewInsightsActivity extends AppCompatActivity {
 
@@ -88,4 +92,13 @@ Button viewDetailedReportButton;
         int year = datePicker.getYear();
         return day + "/" + month + "/" + year;
     }
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences prefs = newBase.getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String langCode = prefs.getString("AppLanguage", "en");
+        Locale locale = new Locale(langCode);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        Context context = newBase.createConfigurationContext(config);
+        super.attachBaseContext(context);}
 }

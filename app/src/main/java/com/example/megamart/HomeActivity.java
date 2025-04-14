@@ -1,16 +1,15 @@
 package com.example.megamart;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +24,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
@@ -43,6 +44,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences prefs = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String langCode = prefs.getString("AppLanguage", "");
+        LocaleHelper.setLocale(this, langCode);
         // Consider removing EdgeToEdge if you want the toolbar to be truly at the top
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
@@ -51,17 +55,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         //imp
 
 
-
-
-
-
-
-
-
         //start the next og navigation drawer from here
         // Toolbar setup
-
-
 
 
         // Initialize Toolbar
@@ -118,7 +113,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         bottomNavigationView = findViewById(R.id.homeBottomNav);
         bottomNavigationView.setSelectedItemId(R.id.menuHomeNavPlogging);
         bottomNavigationView.setOnItemSelectedListener(this);
-       // getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
+        // getSupportFragmentManager().beginTransaction().replace(R.id.homeFramelayout, ploggingFragment).commit();
     }
 
     @Override
@@ -135,8 +130,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
             Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(HomeActivity.this, SettingActivity.class));
             return true;
-        }
-        else if (itemId == R.id.menu_item_aboutus) {
+        } else if (itemId == R.id.menu_item_aboutus) {
             Toast.makeText(HomeActivity.this, "About us", Toast.LENGTH_SHORT).show(); // Corrected string
             startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
             return true;
@@ -144,8 +138,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
             Toast.makeText(HomeActivity.this, "Help", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(HomeActivity.this, HelpActivity.class));
             return true;
-        }
-        else if (itemId == R.id.menu_item_logout) {
+        } else if (itemId == R.id.menu_item_logout) {
             new AlertDialog.Builder(this) // Use 'this' instead of 'HomeActivity.this' for context
                     .setTitle("PlogMate") // Consistent title
                     .setMessage("Are you sure you want to log out?") // Clearer message
@@ -161,17 +154,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
     }
 
 
-
-
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.menuHomeNavExplore) {
             getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, exploreFragment).commit();
-        }
-
-        else if (itemId == R.id.menuHomeNavPlogging) {
+        } else if (itemId == R.id.menuHomeNavPlogging) {
             getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, ploggingFragment).commit();
         } else if (itemId == R.id.menuHomeNavLalbindi) {
             getSupportFragmentManager().beginTransaction().replace(R.id.homeFrameLayout, lalbindiFragment).commit();
@@ -185,8 +173,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         return true;
     }
 
-    private void replaceFragment(androidx.fragment.app.Fragment fragment){
+    private void replaceFragment(androidx.fragment.app.Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.homeFrameLayout, fragment);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences prefs = newBase.getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String langCode = prefs.getString("AppLanguage", "en");
+        Locale locale = new Locale(langCode);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        Context context = newBase.createConfigurationContext(config);
+        super.attachBaseContext(context);
     }
 }

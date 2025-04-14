@@ -25,9 +25,11 @@
         tools:ignore="ObsoleteSdkInt"
         tools:targetApi="31">
         <activity
-            android:name=".DetailedReportActivity"
+            android:name=".LanguageSettingActivity"
             android:exported="false" />
-        <!-- Your activities -->
+        <activity
+            android:name=".DetailedReportActivity"
+            android:exported="false" /> <!-- Your activities -->
         <activity
             android:name=".SendAlertsActivity"
             android:exported="false" />

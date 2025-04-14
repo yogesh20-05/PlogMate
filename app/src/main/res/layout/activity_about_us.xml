@@ -16,13 +16,14 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="50dp"
         app:cardCornerRadius="30dp"
-        app:cardMaxElevation="200dp">
+        app:cardMaxElevation="200dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="About Us"
-            android:textSize="30dp"
+            android:text="@string/about_us"
+            android:textSize="30sp"
             android:layout_marginLeft="37dp"
             android:layout_marginTop="50dp"
             android:textStyle="bold"
@@ -30,23 +31,14 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:layout_width="325dp"
+            android:layout_width="310dp"
             android:layout_height="419dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="150dp"
-            android:text="🌱 Welcome to SambhajiNagar Ploggers! 🏃‍♂️🗑️
-        We are a community of passionate individuals who believe in making fitness fun while keeping our city clean. 🏙️✨
-
-        🌍 Our mission is simple:
-        ➤ Run, walk, or jog while picking up litter 🚶‍♀️🏃‍♂️♻️
-        ➤ Reduce plastic waste and promote sustainability 🌿🚯
-        ➤ Inspire citizens to take action for a cleaner and greener future 🌱💚
-
-        💪 Every small effort counts! By plogging together, we protect nature, improve our health, and create a positive impact on our beloved city. 🏞️💕
-
-        📢 Join us in making SambhajiNagar *litter-free, one step at a time!* 🚀🌎♻️"
+            android:text="@string/welcome_to_sambhajinagar_ploggers_we_are_a_community_of_passionate_individuals_who_believe_in_making_fitness_fun_while_keeping_our_city_clean_our_mission_is_simple_run_walk_or_jog_while_picking_up_litter_reduce_plastic_waste_and_promote_sustainability_inspire_citizens_to_take_action_for_a_cleaner_and_greener_future_every_small_effort_counts_by_plogging_together_we_protect_nature_improve_our_health_and_create_a_positive_impact_on_our_beloved_city_join_us_in_making_sambhajinagar_litter_free_one_step_at_a_time"
             android:textAlignment="center"
-            android:textSize="17dp" />
+            android:textSize="17dp"
+            tools:ignore="TextSizeCheck" />
 
 
     </androidx.cardview.widget.CardView>

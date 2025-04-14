@@ -47,6 +47,9 @@
             android:name=".SendAlertsActivity"
             android:exported="false" />
         <activity
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrganizeEventActivity"
             android:exported="false" />
         <activity

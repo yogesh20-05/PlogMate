@@ -44,6 +44,10 @@ public class SettingActivity extends AppCompatActivity {
             Intent intent = new Intent(SettingActivity.this, LanguageSettingActivity.class);
             startActivity(intent);
         });
+        btnSettingNotification.setOnClickListener(v -> {
+            Intent intent = new Intent(SettingActivity.this, NotificationSettingActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showThemeSelectionDialog() {
